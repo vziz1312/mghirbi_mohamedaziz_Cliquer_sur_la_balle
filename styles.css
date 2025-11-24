@@ -3,7 +3,6 @@
 html, body {
     height: 100%;
 }
-
 body{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -59,7 +58,6 @@ body{
     border-radius: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
 .glow-on-hover:before {
     content: '';
     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
@@ -76,19 +74,15 @@ body{
     transition: opacity .3s ease-in-out;
     border-radius: 10px;
 }
-
 .glow-on-hover:active {
     color: #000
 }
-
 .glow-on-hover:active:after {
     background: transparent;
 }
-
 .glow-on-hover:hover:before {
     opacity: 1;
 }
-
 .glow-on-hover:after {
     z-index: -1;
     content: '';
@@ -100,7 +94,6 @@ body{
     top: 0;
     border-radius: 10px;
 }
-
 @keyframes glowing {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
@@ -132,7 +125,6 @@ body{
     animation: titleSweep 3s ease-in-out infinite;
     opacity: 0.9;
 }
-
 @keyframes titleGradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -152,4 +144,55 @@ body{
     0% { transform: scaleX(0); opacity: 0.6; }
     50% { transform: scaleX(1); opacity: 1; }
     100% { transform: scaleX(0); opacity: 0.6; }
+}
+#time-select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    min-width: 170px;
+    padding: 10px 40px 10px 14px;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.08);
+    color: #000; 
+    background-color: transparent;
+    background-image:
+      linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center, left top;
+    background-size: 18px auto, cover;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.35), inset 0 -2px 6px rgba(0,0,0,0.2);
+    transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s ease, filter .18s ease;
+    background-clip: padding-box;
+    background-size: 200% 200%, 18px;
+    animation: timeSelectGradient 8s linear infinite;
+}
+#time-select option {
+    color: #000;
+    background: #fff;
+}
+#time-select:hover{
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.45), 0 0 18px rgba(100,140,255,0.06);
+}
+#time-select:focus{
+    outline: none;
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 0 0 6px rgba(80,120,255,0.12), 0 14px 30px rgba(0,0,0,0.4);
+    animation-duration: 5s;
+}
+@keyframes timeSelectPulse{
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-1px) scale(1.005); }
+    100% { transform: translateY(0) scale(1); }
+}
+@keyframes timeSelectGradient{
+    0% { background-position: 0% 50%, right 12px center; }
+    50% { background-position: 100% 50%, right 12px center; }
+    100% { background-position: 0% 50%, right 12px center; }
+}
+@media (prefers-reduced-motion: reduce){
+    #time-select{ animation: none; transition: none; transform: none; }
 }
