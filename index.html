@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>jeu cliquer sur la balle</title>
 </head>
+
 <body>
-    <h1 class="title">-Jeu : cliquer sur la ball-</h1>
-    <div id="game-container">
-        <div id="ball"></div>
+    <div id="main-wrapper">
+        <div id="game-area">
+            <div id="game-container">
+                <div id="ball"></div>
+            </div>
+        </div>
+        <div id="sidebar">
+            <h1 class="title">Jeu clique Balle</h1>
+            <div id="score" class="info-display">Score: 0</div>
+            <div id="time" class="info-display">Time: 00:30</div>
+
+            <div class="control-section">
+                <label for="time-select">Time:</label>
+                <select id="time-select">
+                    <option value="15">15s</option>
+                    <option value="30" selected>30s</option>
+                    <option value="60">60s</option>
+                </select>
+            </div>
+
+            <button id="play-btn" class="glow-on-hover" type="button">Play</button>
+
+            <div id="high-scores">
+                <h2>Top 3</h2>
+                <ol id="high-score-list">
+                    <li>-</li>
+                    <li>-</li>
+                    <li>-</li>
+                </ol>
+            </div>
+        </div>
     </div>
-    <p id="score">Score: 0</p>
-    <p>Choose time:</p>
-<select id="time-select">
-    <option value="15">15 seconds</option>
-    <option value="30" selected>30 seconds</option>
-    <option value="60">1 minute</option>
-</select>
-<button class="glow-on-hover" type="button">Play Here</button>
     <script src="script.js"></script>
 </body>
+
 </html>
